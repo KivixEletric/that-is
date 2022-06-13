@@ -1,0 +1,17 @@
+{
+  "name": "@kivixeletric/that-is",
+  "version": "1.0.0",
+  "description": "A library for checking multiple or single value types",
+  "main": "./index.js",
+  "author": "KivixEletric",
+  "license": "MIT",
+  "keywords": ["util", "type", "test", "check"],
+  "homepage": "https://github.com/KivixEletric/That-is#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KivixEletric/That-is.git"
+  },
+  "bugs": {
+    "url": "https://github.com/KivixEletric/That-is/issues"
+  }
+}
