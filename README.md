@@ -1,9 +1,11 @@
-<h1 align="center">
-    That is
-    </br></br>
+<h1 align="center">That is</h1>
+
+<div align="center">
     <a href='./LICENSE' title='MIT License'><img src='https://img.shields.io/badge/license-MIT-purple.svg?style=for-the-badge'></a>
     <img src='https://img.shields.io/badge/Maintained-yes-green.svg?style=for-the-badge'>
-</h1>
+</div>
+
+</br>
 
 > `That-is` is a utility javascript library for type checking, the purpose of the project is to help with flexibility and code optimization
 
@@ -20,6 +22,8 @@ npm install @kivixeletric/that-is
 To use the library in your project is very simple, see the example below:
 
 ```js
+var is = require('@kivixeletric/that-is')
+
 // Number Type
 is.number('0') // will return a False
 is.number(0)   // will return a True
