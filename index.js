@@ -24,7 +24,7 @@
   }
 
   is.divisible = function (value, number) {
-    return is.num(value, number) && !is.decimal(value / number)
+    return is.num(value, number) && (value % number) == 0
   }
 
   is.equal = (value, other) => {
@@ -32,12 +32,15 @@
   }
 
   is.defined = is.def = BulkCheck(value => {
-    if (!is.Obj(value)) return typeof value !== 'undefined';
-    return !!Object.entries(value)[0]
+    return is.Obj(value) && !!Object.entries(value)[0] || typeof value !== 'undefined'
   })
 
   is.number = is.num = is.int = BulkCheck(value => {
     return typeof value == 'number'
+  })
+
+  is.function = is.fn = BulkCheck(value => {
+    return typeof value == 'function'
   })
 
   is.string = is.str = BulkCheck(value => {
@@ -48,10 +51,6 @@
     return typeof value == 'boolean'
   })
 
-  is.function = is.fn = BulkCheck(value => {
-    return typeof value == 'function'
-  })
-
   is.bigint = BulkCheck(value => {
     return typeof value == 'bigint'
   })
@@ -60,28 +59,32 @@
     return typeof value == 'symbol'
   })
 
-  is.object = is.obj = BulkCheck(value => {
-    return value && Object.getPrototypeOf(value).isPrototypeOf({})
-  })
-
   is.Object = is.Obj = BulkCheck(value => {
     return typeof value == 'object'
   })
 
+  is.object = is.obj = BulkCheck(value => {
+    return is.Obj(value) && value.toString().includes('Object')
+  })
+
   is.element = is.elem = BulkCheck(value => {
-    return value && value.nodeType
+    return !!value?.nodeType
   })
 
   is.decimal = BulkCheck(value => {
-    return is.num(value) && value % 1 != 0
+    return is.num(value) && (value % 1) != 0
   })
 
   is.array = is.arr = BulkCheck(Array.isArray || (value => {
-    return value.toString() === '[object Array]'
+    return value.toString().includes('Array')
   }))
 
   is.infinite = BulkCheck(value => {
     return value === Infinity || value === -Infinity
+  })
+
+  is.negative = BulkCheck(value => {
+    return value < 0 && (1 / value) === -Infinity
   })
 
   is.regexp = BulkCheck(value => {

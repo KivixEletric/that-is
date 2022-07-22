@@ -3,10 +3,10 @@
 .github
 
 # Removing test directory
-**/__test__
-**/test
-**/old
-**/docs
+__test__
+test
+old
+docs
 
 # Removing npm modules installed
 node_modules

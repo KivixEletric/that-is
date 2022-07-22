@@ -1,9 +1,11 @@
-<h1 align="center">
-    That is
-    </br></br>
+<h1 align="center">That is</h1>
+
+<div align="center">
     <a href='./LICENSE' title='MIT License'><img src='https://img.shields.io/badge/license-MIT-purple.svg?style=for-the-badge'></a>
     <img src='https://img.shields.io/badge/Maintained-yes-green.svg?style=for-the-badge'>
-</h1>
+</div>
+
+</br>
 
 > `That-is` is a utility javascript library for type checking, the purpose of the project is to help with flexibility and code optimization
 
@@ -79,6 +81,8 @@ But some functions will not have multiple values, for example `is.divisible` and
 * `divisible` - (value, number) -> Checks if value is divisible with another number
 
 * `infinite` - (...values) -> Checks if value is a infinite type
+
+* `negative` - (...values) -> Checks if value is a negative numeric type
 
 ### Object Types
 * `element` or `elem` - (...values) -> Checks if value is node element type

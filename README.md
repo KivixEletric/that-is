@@ -61,6 +61,8 @@ But some functions will not have multiple values, for example `is.divisible` and
 * `divisible` - (value, number) -> Checks if value is divisible with another number
 
 * `infinite` - (...values) -> Checks if value is a infinite type
+  
+* `negative` - (...values) -> Checks if value is a negative numeric type
 
 ### Object Types
 * `element` or `elem` - (...values) -> Checks if value is node element type

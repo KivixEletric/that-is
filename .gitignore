@@ -1,7 +1,7 @@
 # Removing test directory
-**/__test__
-**/test
-**/old
+__test__
+test
+old
 
 # Removing npm modules installed
 node_modules
