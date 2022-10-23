@@ -27,7 +27,7 @@ The project is designed to support both `Node` and `Web` environments, follow th
 
 - ## Node Version
 
-  - Use the platform [npm](https://www.npmjs.com) to install the library:
+  - Use the platform [npm](https://www.npmjs.com/package/@kivixeletric/that-is) to install the library:
   
     ```
     npm install @kivixeletric/that-is
@@ -36,7 +36,13 @@ The project is designed to support both `Node` and `Web` environments, follow th
   - After installation, you can use the library with `require` as in the example below:
 
     ```js
-    const is = require('@kivixeletric/that-is')
+    var is = require('@kivixeletric/that-is')
+    ```
+
+    but if you write in `TypeScript` and like to use the ESM system, then you can use this method:
+
+    ```js
+    import is from '@kivixeletric/that-is'
     ```
 
 # How to use
@@ -81,8 +87,6 @@ But some functions will not have multiple values, for example `is.divisible` and
 * `divisible` - (value, number) -> Checks if value is divisible with another number
 
 * `infinite` - (...values) -> Checks if value is a infinite type
-
-* `negative` - (...values) -> Checks if value is a negative numeric type
 
 ### Object Types
 * `element` or `elem` - (...values) -> Checks if value is node element type

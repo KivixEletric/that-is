@@ -1,8 +1,9 @@
-# Removing test directory
-__test__
-test
-old
+# Debug directories
+__tests__
+__old__
+_tests_
+_old_
 
-# Removing npm modules installed
+# Dependency directories & Unnecessary manifests
 node_modules
 package-lock.json

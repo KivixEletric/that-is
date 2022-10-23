@@ -20,7 +20,7 @@
   // Defining Types
 
   is.type = is.a = function (type, ...values) {
-    return is[type] && is[type](...values) || false
+    return is[type] ? is[type](...values) : false
   }
 
   is.divisible = function (value, number) {
@@ -81,10 +81,6 @@
 
   is.infinite = BulkCheck(value => {
     return value === Infinity || value === -Infinity
-  })
-
-  is.negative = BulkCheck(value => {
-    return value < 0
   })
 
   is.regexp = BulkCheck(value => {

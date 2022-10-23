@@ -10,48 +10,48 @@ declare type TypesList =
 
 declare module '@kivixeletric/that-is' {
   interface Types {
-    type(type: TypesList, ...value: any): boolean
-    a(type: TypesList, ...value: any): boolean
+    type(type: TypesList, ...value: unknown[]): boolean
+    a(type: TypesList, ...value: unknown[]): boolean
 
-    equal(value: any, other: any): boolean
+    equal(value: unknown, other: unknown): boolean
     divisible(value: number, number: number): boolean
 
-    defined(...value: any): boolean
-    def(...value: any): boolean
+    defined(...value: unknown[]): boolean
+    def(...value: unknown[]): boolean
 
-    decimal(...values: number[]): boolean
-    bigint(...values: number[]): boolean
-    infinite(...values: number[]): boolean
+    decimal(...values: unknown[]): boolean
+    bigint(...values: unknown[]): boolean
+    infinite(...values: unknown[]): boolean
 
-    element(...values: HTMLElement[]): boolean
-    elem(...values: HTMLElement[]): boolean
+    element(...values: unknown[]): boolean
+    elem(...values: unknown[]): boolean
 
-    Object(...values: Object[]): boolean
-    Obj(...values: Object[]): boolean
+    Object(...values: unknown[]): boolean
+    Obj(...values: unknown[]): boolean
 
-    object(...values: object[]): boolean
-    obj(...values: object[]): boolean
+    object(...values: unknown[]): boolean
+    obj(...values: unknown[]): boolean
 
-    array(...values: Array<any>): boolean
-    arr(...values: Array<any>): boolean
+    array(...values: unknown[]): boolean
+    arr(...values: unknown[]): boolean
 
-    number(...values: number[]): boolean
-    num(...values: number[]): boolean
-    int(...values: number[]): boolean
+    number(...values: unknown[]): boolean
+    num(...values: unknown[]): boolean
+    int(...values: unknown[]): boolean
 
-    string(...values: string[]): boolean
-    str(...values: string[]): boolean
+    string(...values: unknown[]): boolean
+    str(...values: unknown[]): boolean
 
-    boolean(...values: boolean[]): boolean
-    bool(...values: boolean[]): boolean
+    boolean(...values: unknown[]): boolean
+    bool(...values: unknown[]): boolean
 
-    function(...values: Function[]): boolean
-    fn(...values: Function[]): boolean
+    function(...values: unknown[]): boolean
+    fn(...values: unknown[]): boolean
 
-    symbol(...values: symbol[]): boolean
-    regexp(...values: RegExp[]): boolean
+    symbol(...values: unknown[]): boolean
+    regexp(...values: unknown[]): boolean
   }
-
+  
   var That_is: Types
   export = That_is
 }

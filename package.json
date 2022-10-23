@@ -1,6 +1,6 @@
 {
   "name": "@kivixeletric/that-is",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "./index.js",
   "description": "A library for checking multiple or single value types",
   "author": "KivixEletric",

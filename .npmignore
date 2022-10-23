@@ -1,13 +1,13 @@
-# Removing Unnecessary Files
+# Debug directories
+__tests__
+__old__
+_tests_
+_old_
+
+# Unnecessary directories & files
 .gitignore
 .github
 
-# Removing test directory
-__test__
-test
-old
-docs
-
-# Removing npm modules installed
+# Dependency directories & Unnecessary manifests
 node_modules
 package-lock.json
