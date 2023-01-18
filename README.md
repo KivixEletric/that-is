@@ -21,7 +21,7 @@ npm install @kivixeletric/that-is
 
 To use the library in your project is very simple, see the example below:
 
-```js          
+```js
 var is = require('@kivixeletric/that-is')
 
 // Number Type

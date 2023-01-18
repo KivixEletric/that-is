@@ -1,4 +1,4 @@
-declare type TypesList = 
+declare type types = 
 'defined'  | 'def'      | 'decimal'  |
 'bigint'   | 'infinite' | 'element'  |
 'elem'     | 'Object'   | 'Obj'      |
@@ -10,11 +10,11 @@ declare type TypesList =
 
 declare module '@kivixeletric/that-is' {
   interface Types {
-    type(type: TypesList, ...value: unknown[]): boolean
-    a(type: TypesList, ...value: unknown[]): boolean
+    type(type: types, ...value: unknown[]): boolean
+    a(type: types, ...value: unknown[]): boolean
 
-    equal(value: unknown, other: unknown): boolean
     divisible(value: number, number: number): boolean
+    equal(value: unknown, other: unknown): boolean
 
     defined(...value: unknown[]): boolean
     def(...value: unknown[]): boolean

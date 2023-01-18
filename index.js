@@ -1,16 +1,16 @@
 (function (factory) {
-  var web = typeof window != 'undefined'
   var node = typeof module != 'undefined' && module.exports
+  var web = typeof window != 'undefined'
   var data = factory()
 
-  if (web) window.is = data
   if (node) module.exports = data
+  if (web) window.is = data
 })
 
 (function(){
   var is = {}
 
-  function BulkCheck(fn) {
+  function every(fn) {
     return function (...values) {
       if (values.length == 0) return false;
       return values.every(v => fn(v))
@@ -31,60 +31,60 @@
     return value === other
   }
 
-  is.defined = is.def = BulkCheck(value => {
+  is.defined = is.def = every(value => {
     return is.Obj(value) && !!Object.entries(value)[0] || typeof value !== 'undefined'
   })
 
-  is.number = is.num = is.int = BulkCheck(value => {
+  is.number = is.num = is.int = every(value => {
     return typeof value == 'number'
   })
 
-  is.function = is.fn = BulkCheck(value => {
+  is.function = is.fn = every(value => {
     return typeof value == 'function'
   })
 
-  is.string = is.str = BulkCheck(value => {
+  is.string = is.str = every(value => {
     return typeof value == 'string'
   })
 
-  is.boolean = is.bool = BulkCheck(value => {
+  is.boolean = is.bool = every(value => {
     return typeof value == 'boolean'
   })
 
-  is.bigint = BulkCheck(value => {
+  is.bigint = every(value => {
     return typeof value == 'bigint'
   })
 
-  is.symbol = BulkCheck(value => {
+  is.symbol = every(value => {
     return typeof value == 'symbol'
   })
 
-  is.Object = is.Obj = BulkCheck(value => {
+  is.Object = is.Obj = every(value => {
     return typeof value == 'object'
   })
 
-  is.object = is.obj = BulkCheck(value => {
-    return is.Obj(value) && value.toString().includes('Object')
+  is.object = is.obj = every(value => {
+    return value.toString().includes('Object')
   })
 
-  is.element = is.elem = BulkCheck(value => {
-    return !!value?.nodeType
-  })
-
-  is.decimal = BulkCheck(value => {
-    return is.num(value) && (value % 1) != 0
-  })
-
-  is.array = is.arr = BulkCheck(Array.isArray || (value => {
+  is.array = is.arr = every(Array.isArray || (value => {
     return value.toString().includes('Array')
   }))
 
-  is.infinite = BulkCheck(value => {
-    return value === Infinity || value === -Infinity
+  is.regexp = every(value => {
+    return value.toString().includes('RegExp')
   })
 
-  is.regexp = BulkCheck(value => {
-    return value.toString().includes('RegExp')
+  is.element = is.elem = every(value => {
+    return !!value?.nodeType
+  })
+
+  is.decimal = every(value => {
+    return is.num(value) && (value % 1) != 0
+  })
+
+  is.infinite = every(value => {
+    return value === Infinity || value === -Infinity
   })
 
   return is

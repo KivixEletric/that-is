@@ -1,15 +1,16 @@
 {
   "name": "@kivixeletric/that-is",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "./index.js",
-  "description": "A library for checking multiple or single value types",
+  "description": "A JavaScript library that checks whether the value is of a specific type",
   "author": "KivixEletric",
   "license": "MIT",
   "keywords": [
-    "util",
-    "type",
-    "test",
-    "check"
+    "typescript-support",
+    "javascript",
+    "type-checker",
+    "type-checks",
+    "type-check"
   ],
   "homepage": "https://github.com/KivixEletric/That-is#readme",
   "repository": {

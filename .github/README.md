@@ -1,7 +1,7 @@
 <h1 align="center">That is</h1>
 
 <div align="center">
-    <a href='./LICENSE' title='MIT License'><img src='https://img.shields.io/badge/license-MIT-purple.svg?style=for-the-badge'></a>
+    <a href='../LICENSE' title='MIT License'><img src='https://img.shields.io/badge/license-MIT-purple.svg?style=for-the-badge'></a>
     <img src='https://img.shields.io/badge/Maintained-yes-green.svg?style=for-the-badge'>
 </div>
 
