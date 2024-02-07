@@ -2,14 +2,14 @@
 
 <div align="center">
     <a href='./LICENSE' title='MIT License'><img src='https://img.shields.io/badge/license-MIT-purple.svg?style=for-the-badge'></a>
-    <img src='https://img.shields.io/badge/Maintained-yes-green.svg?style=for-the-badge'>
+    <img src='https://img.shields.io/badge/maintenance-as--is-yellow.svg?style=for-the-badge'>
 </div>
 
 </br>
 
-> `That-is` is a utility javascript library for type checking, the purpose of the project is to help with flexibility and code optimization
+> `That-is` is a utility javascript library for type checking, the purpose of the project is to help with flexibility and code optimization.
 
-# Installation
+# > Installation
 
 You can use the library using a [latest version](https://github.com/KivixEletric/That-is/releases) on github or via [npm](https://www.npmjs.com) (the recommended way):
   
@@ -17,12 +17,12 @@ You can use the library using a [latest version](https://github.com/KivixEletric
 npm install @kivixeletric/that-is
 ```
 
-# How to use
+# > How to use
 
 To use the library in your project is very simple, see the example below:
 
 ```js
-var is = require('@kivixeletric/that-is')
+import is from '@kivixeletric/that-is'
 
 // Number Type
 is.number('0') // will return a False
@@ -44,16 +44,18 @@ is.number(1, 2, 3)   // True
 
 But some functions will not have multiple values, for example `is.divisible` and `is.equal`
 
-# Type List
+# > Type List
 
-### Logical Types
+### ~ Logical Types
 * `type` or `a` - (type, ...values) -> Checks if value is a selected type
 
 * `defined` or `def` - (...values) -> Checks if value is defined (is also applied to Object types)
 
-* `equal` - (value, other) -> Checks if value is equals a other value
+* `typeEquals` - (value1, value2) -> Checks if typeof value is equals a other typeof value
 
-### Numeric Types
+* `equals` - (value1, value2) -> Checks if value is equals a other value
+
+### ~ Numeric Types
 * `decimal` - (...values) -> Checks if value is decimal type
 
 * `bigint` - (...values) -> Checks if value is bigint type
@@ -62,16 +64,14 @@ But some functions will not have multiple values, for example `is.divisible` and
 
 * `infinite` - (...values) -> Checks if value is a infinite type
 
-### Object Types
-* `element` or `elem` - (...values) -> Checks if value is node element type
-
-* `Object` or `Obj` - (...values) -> Checks if value is array or object type
+### ~ Object Types
+* `element` or `elem` or `node` - (...values) -> Checks if value is node element type
 
 * `object` or `obj` - (...values) -> Checks if value is object type
 
 * `array` or `arr` - (...values) -> Checks if value is array type
 
-### Natural Types
+### ~ Natural Types
 * `number`, `num` or `int` - (...values) -> Checks if value is number type
 
 * `string` or `str` - (...values) -> Checks if value is string type
@@ -82,9 +82,9 @@ But some functions will not have multiple values, for example `is.divisible` and
 
 * `symbol` - (...values) -> Checks if value is symbol type
 
-### Special Types
+### ~ Special Types
 * `regexp` - (...values) -> Checks if value is RegExp type
 
-# License
+# > License
 
 - This project is licensed under [MIT License](./LICENSE)

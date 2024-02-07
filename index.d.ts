@@ -1,20 +1,13 @@
-declare type types = 
-'defined'  | 'def'      | 'decimal'  |
-'bigint'   | 'infinite' | 'element'  |
-'elem'     | 'Object'   | 'Obj'      |
-'object'   | 'obj'      | 'array'    |
-'arr'      | 'number'   | 'num'      |
-'int'      | 'string'   | 'str'      |
-'boolean'  | 'bool'     | 'function' |
-'fn'       | 'symbol'   | 'regexp'
+declare type TypeList = "type" | "a" | "defined" | "def" | "number" | "num" | "int" | "function" | "fn" | "string" | "str" | "boolean" | "bool" | "object" | "obj" | "array" | "arr" | "element" | "elem" | "node" | "infinite" | "decimal" | "bigInt" | "symbol" | "regexp" | "divisible" | "typeEquals" | "equals"
 
 declare module '@kivixeletric/that-is' {
   interface Types {
-    type(type: types, ...value: unknown[]): boolean
-    a(type: types, ...value: unknown[]): boolean
+    type(type: TypeList, ...value: unknown[]): boolean
+    a(type: TypeList, ...value: unknown[]): boolean
 
-    divisible(value: number, number: number): boolean
-    equal(value: unknown, other: unknown): boolean
+    divisible(value1: number, value2: number): boolean
+    typeEquals(value1: unknown, value2: unknown): boolean
+    equal(value1: unknown, value2: unknown): boolean
 
     defined(...value: unknown[]): boolean
     def(...value: unknown[]): boolean
@@ -25,9 +18,7 @@ declare module '@kivixeletric/that-is' {
 
     element(...values: unknown[]): boolean
     elem(...values: unknown[]): boolean
-
-    Object(...values: unknown[]): boolean
-    Obj(...values: unknown[]): boolean
+    node(...values: unknown[]): boolean
 
     object(...values: unknown[]): boolean
     obj(...values: unknown[]): boolean

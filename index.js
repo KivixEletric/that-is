@@ -1,91 +1,92 @@
-(function (factory) {
-  var node = typeof module != 'undefined' && module.exports
-  var web = typeof window != 'undefined'
-  var data = factory()
+;(function (factory) {
+  var isNodeEnv = typeof module != 'undefined' && module.exports
+  var isWebEnv = typeof window != 'undefined' && (window.is = {})
+  var exports = isNodeEnv || isWebEnv || {}
 
-  if (node) module.exports = data
-  if (web) window.is = data
+  var devToolPrototypeValues = {
+    setAlias(alias, value) {
+      alias.forEach(name => (exports[name] = value))
+    }
+  }
+
+  Object.defineProperty(exports, '__esModule', { value: true })
+  Object.setPrototypeOf(exports, devToolPrototypeValues)
+  Object.setPrototypeOf(exports, factory(exports) || {})
 })
 
-(function(){
-  var is = {}
-
-  function every(fn) {
+(exports => {
+  function forEachValues(fn) {
     return function (...values) {
-      if (values.length == 0) return false;
+      if (values.length <= 0) return false
       return values.every(v => fn(v))
     }
   }
 
-  // Defining Types
-
-  is.type = is.a = function (type, ...values) {
-    return is[type] ? is[type](...values) : false
-  }
-
-  is.divisible = function (value, number) {
-    return is.num(value, number) && (value % number) == 0
-  }
-
-  is.equal = (value, other) => {
-    return value === other
-  }
-
-  is.defined = is.def = every(value => {
-    return is.Obj(value) && !!Object.entries(value)[0] || typeof value !== 'undefined'
+  exports.setAlias(['type', 'a'], (type, ...values) => {
+    return exports[type] ? exports[type](...values) : false
   })
 
-  is.number = is.num = is.int = every(value => {
-    return typeof value == 'number'
-  })
-
-  is.function = is.fn = every(value => {
-    return typeof value == 'function'
-  })
-
-  is.string = is.str = every(value => {
-    return typeof value == 'string'
-  })
-
-  is.boolean = is.bool = every(value => {
-    return typeof value == 'boolean'
-  })
-
-  is.bigint = every(value => {
-    return typeof value == 'bigint'
-  })
-
-  is.symbol = every(value => {
-    return typeof value == 'symbol'
-  })
-
-  is.Object = is.Obj = every(value => {
-    return typeof value == 'object'
-  })
-
-  is.object = is.obj = every(value => {
-    return value.toString().includes('Object')
-  })
-
-  is.array = is.arr = every(Array.isArray || (value => {
-    return value.toString().includes('Array')
+  exports.setAlias(['defined', 'def'], forEachValues(value => {
+    return (exports.object(value) && !!Object.entries(value)[0]) || typeof value !== 'undefined'
   }))
 
-  is.regexp = every(value => {
-    return value.toString().includes('RegExp')
-  })
+  exports.setAlias(['number', 'num', 'int'], forEachValues(value => {
+    return typeof value === 'number'
+  }))
 
-  is.element = is.elem = every(value => {
+  exports.setAlias(['function', 'fn'], forEachValues(value => {
+    return typeof value === 'function'
+  }))
+
+  exports.setAlias(['string', 'str'], forEachValues(value => {
+    return typeof value === 'string'
+  }))
+
+  exports.setAlias(['boolean', 'bool'], forEachValues(value => {
+    return typeof value === 'boolean'
+  }))
+
+  exports.setAlias(['object', 'obj'], forEachValues(value => {
+    return value.toString().includes('Object')
+  }))
+
+  exports.setAlias(['array', 'arr'], forEachValues(value => {
+    return Array?.isArray ? Array.isArray(value) : value.toString().includes('Array')
+  }))
+
+  exports.setAlias(['element', 'elem', 'node'], forEachValues(value => {
     return !!value?.nodeType
-  })
+  }))
 
-  is.decimal = every(value => {
-    return is.num(value) && (value % 1) != 0
-  })
-
-  is.infinite = every(value => {
+  exports.infinite = forEachValues(value => {
     return value === Infinity || value === -Infinity
   })
 
-  return is
+  exports.decimal = forEachValues(value => {
+    return exports.number(value) && value % 1 !== 0
+  })
+
+  exports.bigInt = forEachValues(value => {
+    return typeof value === 'bigint'
+  })
+
+  exports.symbol = forEachValues(value => {
+    return typeof value === 'symbol'
+  })
+
+  exports.regexp = forEachValues(value => {
+    return value.toString().includes('RegExp')
+  })
+  
+  exports.divisible = function (number1, number2) {
+    return exports.number(number1, number2) && number1 % number2 == 0
+  }
+
+  exports.typeEquals = function (value1, value2) {
+    return typeof value1 === typeof value2
+  }
+
+  exports.equals = function (value1, value2) {
+    return value1 === value2
+  }
 })

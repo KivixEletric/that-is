@@ -1,6 +1,6 @@
 {
   "name": "@kivixeletric/that-is",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "main": "./index.js",
   "description": "A JavaScript library that checks whether the value is of a specific type",
   "author": "KivixEletric",
